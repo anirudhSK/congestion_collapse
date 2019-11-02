@@ -22,7 +22,7 @@ for t in range(0, ticks):
     if queue_size + packet_arrivals <= buffer_size: # space in buffer
       queue_size += packet_arrivals
       assert(queue_size <= buffer_size)
-      input_rates[j] = min(input_rates[j] * 2.0, load) # multiplicative increase
+      input_rates[j] = min(input_rates[j] + 0.02, load) # additive increase
     else:
       queue_size = buffer_size
       input_rates[j] = input_rates[j] / 2.0 # multiplicative decrease
